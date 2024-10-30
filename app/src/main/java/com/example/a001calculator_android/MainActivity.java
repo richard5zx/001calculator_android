@@ -20,12 +20,5 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        Test();
-    }
-
-    public void Test() {
-        System.out.println("test");
-        System.out.println("Test2");
     }
 }
