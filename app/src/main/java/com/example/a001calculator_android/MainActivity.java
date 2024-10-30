@@ -26,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void Test() {
         System.out.println("test");
-        //Change 2
+        System.out.println("Test2");
     }
 }
