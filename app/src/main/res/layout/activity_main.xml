@@ -54,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:backgroundTint="#F44336"
+        android:onClick="onClick"
         android:text="+"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/btnSub"

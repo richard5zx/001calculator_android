@@ -45,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
+        int viewId = view.getId();
 
+        if(viewId == btnIds[0]) {
+            System.out.println("add");
+            tvOper.setText("+");
+        } else if (viewId == btnIds[1]) {
+            System.out.println("min");
+            tvOper.setText("-");
+        } else if (viewId == btnIds[2]) {
+            System.out.println("mul");
+            tvOper.setText("*");
+        } else if (viewId == btnIds[3]) {
+            System.out.println("div");
+            tvOper.setText("/");
+        } else if (viewId == btnIds[4]) {
+            System.out.println("equ");
+        } else if (viewId == btnIds[5]) {
+            System.out.println("clr");
+        } else {
+            System.out.print("hi");
+        }
     }
 }
