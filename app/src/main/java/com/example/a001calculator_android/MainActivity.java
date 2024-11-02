@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     // Attributes
     private Double result = 0.0;
-    private Integer a, b;
     private EditText etA, etB;
     private TextView tvOper, tvResult;
     private Button[] btns = new Button[6];
@@ -24,10 +24,6 @@ public class MainActivity extends AppCompatActivity {
     // Setters & Getters
     public Double getResult() { return result; }
     public void setResult(Double result) { this.result = result; }
-    public Integer getA() { return a; }
-    public void setA(Integer a) { this.a = a; }
-    public Integer getB() { return b; }
-    public void setB(Integer b) { this.b = b; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
 
         // Check if there is input
-        if(etA.length() == 0 || etA.length() == 0) { return; }
+        if(etA.length() == 0 || etA.length() == 0) {
+            Toast.makeText(MainActivity.this, "You need to enter both numbers", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         int viewId = view.getId();
 
@@ -64,33 +63,34 @@ public class MainActivity extends AppCompatActivity {
         String strB = etB.getText().toString();
         Double a = Double.parseDouble(strA);
         Double b = Double.parseDouble(strB);
-        double result = 0.0;
 
         if(viewId == btnIds[0]) {
-            System.out.println("add");
+            //System.out.println("add");
             setResult(a + b);
             tvOper.setText("+");
         } else if (viewId == btnIds[1]) {
-            System.out.println("min");
+            //System.out.println("min");
             setResult(a - b);
             tvOper.setText("-");
         } else if (viewId == btnIds[2]) {
-            System.out.println("mul");
+            //System.out.println("mul");
             tvOper.setText("*");
             setResult(a * b);
         } else if (viewId == btnIds[3]) {
-            System.out.println("div");
+            //System.out.println("div");
             tvOper.setText("/");
             setResult(a / b);
         } else if (viewId == btnIds[4]) {
-            System.out.println("equ");
-            tvResult.setText(String.valueOf(getResult()));
+            //System.out.println("equ");
+            tvResult.setText(String.format("%.2f", getResult()));
         } else if (viewId == btnIds[5]) {
-            System.out.println("clr");
+            //System.out.println("clr");
             etA.setText("");
+            etA.requestFocus(); // Move cursor to etA textbox
             etB.setText("");
             tvResult.setText(String.valueOf(0.0));
             setResult(0.0);
+            tvOper.setText("\uD83E\uDEE3");
         } else {
             System.out.print("hi");
         }
